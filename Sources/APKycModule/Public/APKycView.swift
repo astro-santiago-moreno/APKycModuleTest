@@ -20,13 +20,17 @@ public struct APKycView: View {
     
     public var body: some View {
         VStack {
-            Spacer()
-            Text("Welcome to the APKycFeature")
-                .foregroundColor(Color.black)
-            Button("Start") {
-                apKycVM.show = true
+            if apKycVM.loading {
+                ProgressView("Loading")
+            } else {
+                Spacer()
+                Text("Welcome to the APKycFeature")
+                    .foregroundColor(Color.black)
+                Button("Start") {
+                    apKycVM.getProvider()
+                }
+                Spacer()
             }
-            Spacer()
         }
         .sheet(isPresented: $apKycVM.show, content: {
             OnfidoView(onfidoVM: OnfidoViewModel.mock()) { applicantId in
