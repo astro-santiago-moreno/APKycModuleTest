@@ -10,7 +10,7 @@ import Onfido
 
 public struct APKycView: View {
     
-    @State var show: Bool = false
+    @StateObject var apkycView: APKycView = APKycView()
     
     public var finish: () -> Void
     
@@ -24,16 +24,16 @@ public struct APKycView: View {
             Text("Welcome to the APKycFeature")
                 .foregroundColor(Color.black)
             Button("Start") {
-                show = true
+                self.apkycView.showProvider()
             }
             Spacer()
         }
         .sheet(isPresented: $show, content: {
             OnfidoView(onfidoVM: OnfidoViewModel.mock()) { applicantId in
-                show = false
+                self.apkycView.hideProvider()
                 finish()
             } didCancel: { error, applicantId in
-                show = false
+                self.apkycView.hideProvider()
                 finish()
             }
         })
