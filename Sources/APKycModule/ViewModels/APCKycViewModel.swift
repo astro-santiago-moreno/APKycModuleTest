@@ -20,7 +20,7 @@ class APCKycViewModel: ObservableObject {
     
     func getProvider() {
         loading = true
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+        self.service.getKycProvider(source: "Onfido") { _ in
             self.loading = false
             self.show = true
         }
