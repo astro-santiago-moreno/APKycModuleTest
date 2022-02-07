@@ -1,5 +1,5 @@
 //
-//  KycService.swift
+//  KycMockService.swift
 //  
 //
 //  Created by Tiago on 7/02/22.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct KycService: KycServiceProtocol {
+struct KycMockService: KycServiceProtocol {
     
     func getKycProvider(source: String,
                         completion: @escaping (Result<KycProvider, KycError>) -> Void) {

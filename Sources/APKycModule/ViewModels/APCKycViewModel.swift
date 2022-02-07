@@ -14,7 +14,7 @@ class APCKycViewModel: ObservableObject {
     
     private let service: KycServiceProtocol
     
-    init(_ service: KycServiceProtocol = KycService()) {
+    init(_ service: KycServiceProtocol = KycMockService()) {
         self.service = service
     }
     
