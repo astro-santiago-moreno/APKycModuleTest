@@ -25,10 +25,18 @@ public struct APKycView: View {
                 .foregroundColor(Color.black)
             Button("Start") {
                 show = true
-                self.finish()
             }
             Spacer()
         }
+        .sheet(isPresented: $show, content: {
+            OnfidoView(onfidoVM: OnfidoViewModel.mock()) { applicantId in
+                show = false
+                finish()
+            } didCancel: { error, applicantId in
+                show = false
+                finish()
+            }
+        })
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
         .background(Color.white)
     }
