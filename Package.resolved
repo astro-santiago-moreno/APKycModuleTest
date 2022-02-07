@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Onfido",
+        "repositoryURL": "https://github.com/onfido/onfido-ios-sdk.git",
+        "state": {
+          "branch": null,
+          "revision": "9c42f20e792bb4a79491b283bf20b60cc7fca0b4",
+          "version": "23.1.1"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
