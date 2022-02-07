@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Onfido
 
 public struct APKycView: View {
     
@@ -24,6 +25,7 @@ public struct APKycView: View {
                 .foregroundColor(Color.black)
             Button("Start") {
                 show = true
+                self.finish()
             }
             Spacer()
         }
