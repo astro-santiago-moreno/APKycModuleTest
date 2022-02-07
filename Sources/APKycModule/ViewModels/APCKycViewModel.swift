@@ -12,6 +12,12 @@ class APCKycViewModel: ObservableObject {
     @Published var show: Bool = false
     @Published var loading: Bool = false
     
+    private let service: KycServiceProtocol
+    
+    init(_ service: KycServiceProtocol = KycService()) {
+        self.service = service
+    }
+    
     func getProvider() {
         loading = true
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
